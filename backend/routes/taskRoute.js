@@ -5,10 +5,12 @@ const {
   createTask,
   getTasks,
   getTask,
+  deleteTask,
 } = require("../controllers/taskController");
 
 router.post("/api/tasks", createTask);
 router.get("/api/tasks", getTasks);
 router.get("/api/tasks/:id", getTask);
+router.delete("/api/tasks/delete/:id", deleteTask);
 
 module.exports = router;
