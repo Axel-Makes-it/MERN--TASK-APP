@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
-    origin: "https://mern-task-app50-api-onrender.app",
+    origin: "https://mern-task-app50-api.onrender.com",
   })
 );
 
