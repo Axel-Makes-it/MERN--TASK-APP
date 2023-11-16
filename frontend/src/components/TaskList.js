@@ -30,7 +30,7 @@ const TaskList = () => {
       return toast.error("Input field cannot be empty");
     }
     try {
-      await axios.post(`${URL}/api/tasks`, formData);
+      await axios.post(`${URL}api/tasks`, formData);
       toast.success("Task created successfully");
       setFormData({ ...formData, name: "" });
       getTasks();
