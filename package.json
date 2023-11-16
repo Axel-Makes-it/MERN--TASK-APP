@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node /opt/render/project/src/run",
+    "start": "node backend/server.js",
     "backend": "nodemon backend/server.js",
     "frontend": "npm start --prefix frontend",
     "both": "concurrently \"npm run backend\" \"npm run frontend\""
