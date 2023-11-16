@@ -51,9 +51,36 @@ const deleteTask = async (req, res) => {
   }
 };
 
+// Update a Task
+const updateTask = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Check if the task exists
+    const existingTask = await Task.findById(id);
+    if (!existingTask) {
+      return res.status(404).json(`No task with id ${id}`);
+    }
+
+    // Update the task
+    const updatedTask = await Task.findByIdAndUpdate({ _id: id }, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    // if (!task) {
+    //   return res.status(404).json(`No task with id ${id}`);
+    // }
+
+    res.status(200).json(updatedTask);
+  } catch (error) {
+    res.status(500).json({ msg: error.message });
+  }
+};
+
 module.exports = {
   createTask,
   getTasks,
   getTask,
   deleteTask,
+  updateTask,
 };
